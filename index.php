@@ -39,5 +39,30 @@ var circle = L.circle([-5.467125, 105.334682], {
     fillOpacity: 0.5,
     radius: 200
 }).addTo(mymap);
+        
+    var polygon = L.polygon([
+    [-5.456188, 105.348673],
+    [-5.457897, 105.359917],
+    [-5.467937, 105.35923],
+    [-5.465502, 105.346098],
+]).addTo(mymap);
+
+var popup = L.popup();
+
+function onMapClick(e) {
+    popup
+        .setLatLng(e.latlng)
+        .setContent("You clicked the map at " + e.latlng.toString())
+        .openOn(mymap);
+}
+
+mymap.on('click', onMapClick)
+
+marker.bindPopup("Rumah").openPopup();
+circle.bindPopup("Pidada");
+polygon.bindPopup("Lapangan");
+
+</script>
+</html>
 
    
